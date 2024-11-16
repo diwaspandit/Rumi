@@ -1,17 +1,22 @@
-// import { useState } from 'react'
-
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Signup from "./components/singupcard";
+import Login from "./components/logincard";
+import Dashboard from "./components/dashboard";
 import QuestionCard from './components/questioncard'
 
-function App() {
 
+const App: React.FC = () => {
+  
   return (
-    <>
-    <QuestionCard initialQuestionNumber={1} />
+    <Router>
+      <Routes>
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/" element={<Dashboard/>} />
+        <QuestionCard initialQuestionNumber={1} />
+      </Routes>
+    </Router>
+  );
+};
 
-
-    </>
-  )
-}
-
-export default App
+export default App;
